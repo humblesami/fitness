@@ -5,7 +5,7 @@ include("config/db.php"); // include your DB connection file
 
 // Generate random text CAPTCHA
 
-function initRegistration ($conn, $base_url){
+function initRegistration ($conn, $base_url,  $message){
 
     function generateCaptcha() {
         return substr(str_shuffle("ABCDEFGHJKLMNPQRSTUVWXYZ23456789"), 0, 6);
@@ -24,7 +24,7 @@ function initRegistration ($conn, $base_url){
     }
 
     // Form handling
-    $message = "";
+   
     if (isset($_SERVER["REQUEST_METHOD"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
         $name           = trim($_POST['name']);
         $surname        = trim($_POST['surname']);
@@ -82,8 +82,9 @@ function initRegistration ($conn, $base_url){
             header('Location: '.$base_url);
         }
     }
+    return $message;
 }
-initRegistration($conn, $base_url);
+$message = initRegistration($conn, $base_url,  $message);
 ?>
 <!DOCTYPE html>
 <html>
