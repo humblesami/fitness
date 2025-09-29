@@ -33,9 +33,9 @@ function loginUser($conn, $base_url, $message=''){
             $_SESSION['login_captcha'] = generateCaptcha();
         } else {
             // Fetch user from database
-            $sql = "SELECT id, username, email, password FROM users WHERE username=? OR email=?";
+            $sql = "SELECT id, username, email, password FROM users WHERE username=?";
             $stmt = $conn->prepare($sql);
-            $stmt->bind_param("ss", $username_or_email, $username_or_email);
+            $stmt->bind_param("s", $username_or_email);
             $stmt->execute();
             $result = $stmt->get_result();
 

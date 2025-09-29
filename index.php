@@ -1,4 +1,8 @@
-<?php include("config/site.php"); // include your site config file ?>
+<?php
+// $_POST
+// $_SERVER
+// $_SESSION
+include("config/site.php"); // include your site config file ?>
 <!DOCTYPE html>
 <html>
 <head>

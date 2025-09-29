@@ -21,7 +21,6 @@ function registerUsrer ($conn, $base_url,  $message){
    
     if (isset($_SERVER["REQUEST_METHOD"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
         $name           = trim($_POST['name']);
-        $surname        = trim($_POST['surname']);
         $username       = trim($_POST['username']);
         $password       = trim($_POST['password']);
         $confirm_pass   = trim($_POST['confirm_password']);
@@ -32,7 +31,7 @@ function registerUsrer ($conn, $base_url,  $message){
         $terms          = isset($_POST['terms']) ? true : false;
 
         // Empty field check
-        if (empty($name) || empty($surname) || empty($username) || empty($password) || empty($confirm_pass) || empty($email) || empty($confirm_email) || empty($language) || empty($captcha)) {
+        if (empty($name) || empty($username) || empty($password) || empty($confirm_pass) || empty($email) || empty($confirm_email) || empty($language) || empty($captcha)) {
             $message = "<p style='color:red;'>All fields are required</p>";
             $_SESSION['captcha_text'] = generateCaptcha(); // regenerate CAPTCHA on fail
         }
@@ -60,10 +59,10 @@ function registerUsrer ($conn, $base_url,  $message){
             // Insert into DB
             $hashed_password = password_hash($password, PASSWORD_BCRYPT);
 
-            $sql = "INSERT INTO users (name, surname, username, email, password, preferred_language) 
-                    VALUES (?, ?, ?, ?, ?, ?)";
+            $sql = "INSERT INTO users (name, username, email, password, preferred_language) 
+                    VALUES (?, ?, ?, ?, ?)";
             $stmt = $conn->prepare($sql);
-            $stmt->bind_param("ssssss", $name, $surname, $username, $email, $hashed_password, $language);
+            $stmt->bind_param("ssssss", $name, $username, $email, $hashed_password, $language);
 
             if ($stmt->execute()) {
                 $message = "<p style='color:green;'>Registration successful!</p>";

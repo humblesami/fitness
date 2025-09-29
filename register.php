@@ -2,7 +2,7 @@
 session_start();
 include("config/site.php"); // include your site config file
 include("config/db.php"); // include your DB connection file
-include("php_codes/sign_up.php"); // include your php code file
+include("server_files/sign_up.php"); // include your php code file
 $message = registerUsrer($conn, $base_url,  $message);
 ?>
 <!DOCTYPE html>
@@ -29,10 +29,6 @@ $message = registerUsrer($conn, $base_url,  $message);
         <div class="form-group">
             <label>Name</label>
             <input type="text" name="name" required>
-        </div>
-        <div class="form-group">
-            <label>Surname</label>
-            <input type="text" name="surname" required>
         </div>
         <div class="form-group">
             <label>User Name</label>
