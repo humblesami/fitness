@@ -3,7 +3,7 @@ session_start();
 include("config/site.php"); // include your site config file
 include("config/db.php"); // include your DB connection file
 include("server_files/sign_in.php"); // include your php code file
-$message = loginUser($conn, $base_url,  $message);
+$message = loginUser($conn, $base_url,  '');
 ?>
 
 <!DOCTYPE html>
@@ -27,7 +27,7 @@ $message = loginUser($conn, $base_url,  $message);
     <div class="message"><?php echo $message; ?></div>
     <form method="post">
         <div class="form-group">
-            <label>Username or Email</label>
+            <label>Username </label>
             <input type="text" name="username_or_email" required>
         </div>
         <div class="form-group">

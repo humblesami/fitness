@@ -3,7 +3,7 @@ session_start();
 include("config/site.php"); // include your site config file
 include("config/db.php"); // include your DB connection file
 include("server_files/sign_up.php"); // include your php code file
-$message = registerUsrer($conn, $base_url,  $message);
+$message = registerUsrer($conn, $base_url,  '');
 ?>
 <!DOCTYPE html>
 <html>
