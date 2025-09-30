@@ -1,6 +1,5 @@
 <?php
 function registerUsrer ($conn){
-    include("../config/db.php"); // include your DB connection file
     $message = "";
     function generateCaptcha() {
         return substr(str_shuffle("ABCDEFGHJKLMNPQRSTUVWXYZ23456789"), 0, 6);

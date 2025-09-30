@@ -31,7 +31,7 @@ try {
     <form method="post">
         <div class="form-group">
             <label>Username or Email</label>
-            <input type="text" name="username_or_email" required>
+            <input type="text" name="user_identity" required>
         </div>
         <div class="form-group">
             <label>Password</label>

@@ -18,12 +18,12 @@ function loginUser($conn){
     }
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $username_or_email = trim($_POST['username_or_email']);
+        $user_identity = trim($_POST['user_identity']);
         $password = trim($_POST['password']);
         $captcha = trim($_POST['captcha']);
         
         // Empty field check
-        if (empty($username_or_email) || empty($password) || empty($captcha)) {
+        if (empty($user_identity) || empty($password) || empty($captcha)) {
             $message = "<p style='color:red;'>All fields are required</p>";
             $_SESSION['login_captcha'] = generateCaptcha();
         }
@@ -33,9 +33,13 @@ function loginUser($conn){
             $_SESSION['login_captcha'] = generateCaptcha();
         } else {
             // Fetch user from database
+            // $sql = "SELECT id, username, email, password FROM users WHERE username=?";
+            // $stmt = $conn->prepare($sql);
+            // $stmt->bind_param("s", $user_identity);
+
             $sql = "SELECT id, username, email, password FROM users WHERE username=? or email=?";
             $stmt = $conn->prepare($sql);
-            $stmt->bind_param("ss", $username_or_email, $username_or_email);
+            $stmt->bind_param("ss", $user_identity, $user_identity);
             
             $stmt->execute();
             $result = $stmt->get_result();
