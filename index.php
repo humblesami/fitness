@@ -11,9 +11,9 @@ include("config/site.php"); // include your site config file ?>
 </head>
 <body>
 
-<header>
+<div class="top_head">
     <h1>Fitness Club Management System</h1>
-</header>
+</div>
 
 <section class="page-content">
     <h2>Welcome to Your Fitness Club</h2>

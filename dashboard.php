@@ -17,14 +17,12 @@ $username = $_SESSION['username'] ?? 'User';
 </head>
 <body>
 
-<header>
-    <div class="header-container">
+    <div class="top_head">
         <h1>Fitness Club Dashboard</h1> 
         <div class="logout">
             Welcome, <?php echo htmlspecialchars($username); ?> | <a href="server_files/logout.php">Sign Out </a>
         </div>
     </div>
-</header>
 
 <div class="sidebar">
     <a href="#">Home</a>

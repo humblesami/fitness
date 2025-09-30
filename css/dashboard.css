@@ -1,37 +1,33 @@
 body { font-family: Arial, sans-serif; margin:0; background: #f4f4f4; }
 
-/* Header */
-header {
+.top_head {
     background: #007BFF;
     color: #fff;
     padding: 20px 30px;
-    position: relative;
-}
-.header-container {
     display: flex;
     justify-content: center; /* center horizontally */
     align-items: center;     /* center vertically */
     position: relative;
 }
-header h1 {
+.top_head h1 {
     margin: 0;
     font-size: 24px;
     text-align: center;
 }
-header .logout {
+.top_head .logout {
     position: absolute;
     right: 30px;
     top: 50%;
     transform: translateY(-50%);
 }
-header .logout a {
+.top_head .logout a {
     color: #fff;
     text-decoration: none;
     background: #0056b3;
     padding: 6px 12px;
     border-radius: 5px;
 }
-header .logout a:hover { background: #003f7f; }
+.top_head .logout a:hover { background: #003f7f; }
 
 /* Sidebar */
 .sidebar {
@@ -41,7 +37,7 @@ header .logout a:hover { background: #003f7f; }
     position: fixed;
     top: 0;
     left: 0;
-    padding-top: 80px; /* leave space for header */
+    padding-top: 80px; 
 }
 .sidebar a {
     display: block;
@@ -70,5 +66,5 @@ header .logout a:hover { background: #003f7f; }
 @media(max-width:768px) {
     .sidebar { width: 100%; height: auto; position: relative; padding-top: 20px; }
     .content { margin-left: 0; }
-    header .logout { position: static; transform: none; margin-top: 10px; text-align: center; }
+    .top_head .logout { position: static; transform: none; margin-top: 10px; text-align: center; }
 }
