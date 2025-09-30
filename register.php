@@ -1,9 +1,8 @@
 <?php
 session_start();
-include("config/site.php"); // include your site config file
 include("config/db.php"); // include your DB connection file
 include("server_files/sign_up.php"); // include your php code file
-$message = registerUsrer($conn, '');
+$message = registerUsrer($conn);
 ?>
 <!DOCTYPE html>
 <html>
@@ -24,15 +23,19 @@ $message = registerUsrer($conn, '');
 
 <div class="container">
     <h2>Registration Form</h2>
-    <div class="message"><?php echo $message; ?></div>
+    <div class="message error"><?php echo $message; ?></div>
     <form method="post">
         <div class="form-group">
             <label>Name</label>
-            <input type="text" name="name" required>
+            <input type="text" name="name" value="<?php echo $_POST['name'] ?? '' ?>" required>
         </div>
         <div class="form-group">
             <label>User Name</label>
-            <input type="text" name="username" required>
+            <input type="text" name="username" value="<?php echo $_POST['username'] ?? '' ?>" required>
+        </div>
+        <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" name="email" value="<?php echo $_POST['email'] ?? '' ?>" required>
         </div>
         <div class="form-group">
             <label>Password</label>
@@ -42,24 +45,7 @@ $message = registerUsrer($conn, '');
             <label>Confirm Password</label>
             <input type="password" name="confirm_password" required>
         </div>
-        <div class="form-group">
-            <label>Email Address</label>
-            <input type="email" name="email" required>
-        </div>
-        <div class="form-group">
-            <label>Confirm Email Address</label>
-            <input type="email" name="confirm_email" required>
-        </div>
-        <div class="form-group">
-            <label>Preferred Language</label>
-            <select name="language" required>
-                <option value="">Select Language</option>
-                <option value="English">English</option>
-                <option value="Urdu">Urdu</option>
-                <option value="Spanish">Spanish</option>
-                <option value="French">French</option>
-            </select>
-        </div>
+        
 
         <!-- CAPTCHA -->
         <div class="form-group captcha-box">

@@ -1,6 +1,6 @@
 <?php 
-function loginUser($conn, $message=''){
-    // Generate random text CAPTCHA
+function loginUser($conn){
+    $message = "";
     function generateCaptcha() {
         return substr(str_shuffle("ABCDEFGHJKLMNPQRSTUVWXYZ23456789"), 0, 6);
     }
@@ -21,7 +21,7 @@ function loginUser($conn, $message=''){
         $username_or_email = trim($_POST['username_or_email']);
         $password = trim($_POST['password']);
         $captcha = trim($_POST['captcha']);
-
+        
         // Empty field check
         if (empty($username_or_email) || empty($password) || empty($captcha)) {
             $message = "<p style='color:red;'>All fields are required</p>";
@@ -33,9 +33,10 @@ function loginUser($conn, $message=''){
             $_SESSION['login_captcha'] = generateCaptcha();
         } else {
             // Fetch user from database
-            $sql = "SELECT id, username, email, password FROM users WHERE username=?";
+            $sql = "SELECT id, username, email, password FROM users WHERE username=? or email=?";
             $stmt = $conn->prepare($sql);
-            $stmt->bind_param("s", $username_or_email);
+            $stmt->bind_param("ss", $username_or_email, $username_or_email);
+            
             $stmt->execute();
             $result = $stmt->get_result();
 
