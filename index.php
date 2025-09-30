@@ -18,8 +18,8 @@ include("config/site.php"); // include your site config file ?>
 <section class="page-content">
     <h2>Welcome to Your Fitness Club</h2>
     <p>Manage your members, workouts, diets, staff, and finances efficiently with our all-in-one Fitness Club Management System.</p>
-    <a href="<?php echo $base_url; ?>/login.php">Login</a>
-    <a href="<?php echo $base_url; ?>/register.php">Register</a>
+    <a href="login.php">Login</a>
+    <a href="register.php">Register</a>
 </section>
 
 <footer>

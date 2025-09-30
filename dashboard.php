@@ -19,9 +19,9 @@ $username = $_SESSION['username'] ?? 'User';
 
 <header>
     <div class="header-container">
-        <h1>Fitness Club Dashboard</h1>
+        <h1>Fitness Club Dashboard</h1> 
         <div class="logout">
-            Welcome, <?php echo htmlspecialchars($username); ?> | <a href="logout.php">Logout</a>
+            Welcome, <?php echo htmlspecialchars($username); ?> | <a href="server_files/logout.php">Sign Out </a>
         </div>
     </div>
 </header>
