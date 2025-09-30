@@ -63,7 +63,6 @@ function registerUsrer ($conn, $base_url,  $message){
                     VALUES (?, ?, ?, ?, ?)";
             $stmt = $conn->prepare($sql);
             $stmt->bind_param("ssssss", $name, $username, $email, $hashed_password, $language);
-
             if ($stmt->execute()) {
                 $message = "<p style='color:green;'>Registration successful!</p>";
                 unset($_SESSION['captcha_text']); // Reset CAPTCHA after success
