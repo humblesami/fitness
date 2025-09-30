@@ -7,7 +7,7 @@ include("config/site.php"); // include your site config file ?>
 <html>
 <head>
     <title>Fitness Club Management System</title>
-    <link rel="stylesheet" href="<?php echo $base_url; ?>/css/site.css"/>
+    <link rel="stylesheet" href="css/site.css"/>
 </head>
 <body>
 

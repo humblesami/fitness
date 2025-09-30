@@ -12,7 +12,7 @@ $username = $_SESSION['username'] ?? 'User';
 <html>
 <head>
     <title>Dashboard - Fitness Club Management</title>
-    <link rel="stylesheet" href="<?php echo $base_url; ?>/css/dashboard.css"/>
+    <link rel="stylesheet" href="css/dashboard.css"/>
 
 </head>
 <body>

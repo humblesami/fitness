@@ -3,13 +3,13 @@ session_start();
 include("config/site.php"); // include your site config file
 include("config/db.php"); // include your DB connection file
 include("server_files/sign_up.php"); // include your php code file
-$message = registerUsrer($conn, $base_url,  '');
+$message = registerUsrer($conn, '');
 ?>
 <!DOCTYPE html>
 <html>
 <head>
     <title>Registration</title>
-    <link rel="stylesheet" href="<?php echo $base_url; ?>/css/register.css"/>
+    <link rel="stylesheet" href="css/register.css"/>
     <script>
         function refreshCaptcha() {
             fetch("?action=refresh_captcha")

@@ -1,5 +1,5 @@
 <?php 
-function loginUser($conn, $base_url, $message=''){
+function loginUser($conn, $message=''){
     // Generate random text CAPTCHA
     function generateCaptcha() {
         return substr(str_shuffle("ABCDEFGHJKLMNPQRSTUVWXYZ23456789"), 0, 6);

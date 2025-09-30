@@ -1,16 +1,15 @@
 <?php
 session_start();
-include("config/site.php"); // include your site config file
 include("config/db.php"); // include your DB connection file
 include("server_files/sign_in.php"); // include your php code file
-$message = loginUser($conn, $base_url,  '');
+$message = loginUser($conn,  '');
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
     <title>Login</title>
-    <link rel="stylesheet" href="<?php echo $base_url; ?>/css/login.css"/>
+    <link rel="stylesheet" href="css/login.css"/>
     <script>
         function refreshCaptcha() {
             fetch("?action=refresh_captcha")
@@ -52,7 +51,7 @@ $message = loginUser($conn, $base_url,  '');
 </div>
 
     <div class="link">
-        <a href="<?php echo $base_url; ?>/register.php">Don't have an account? Register here</a>
+        <a href="register.php">Don't have an account? Register here</a>
     </div>
 </div>
 </body>

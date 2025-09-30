@@ -1,5 +1,5 @@
 <?php
-function registerUsrer ($conn, $base_url,  $message){
+function registerUsrer ($conn, $message){
 
     function generateCaptcha() {
         return substr(str_shuffle("ABCDEFGHJKLMNPQRSTUVWXYZ23456789"), 0, 6);
@@ -71,7 +71,7 @@ function registerUsrer ($conn, $base_url,  $message){
                 $_SESSION['captcha_text'] = generateCaptcha();
             }
             $stmt->close();
-            header('Location: '.$base_url);
+            header('Location: ../index.php');
         }
     }
     return $message;
