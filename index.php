@@ -1,7 +1,6 @@
 <?php
 session_start();
-include("config/site.php"); // include your site config file 
-// $_SESSION['any_key'] = '1000';
+$_SESSION['any_key'] = '1000';
 // session_destroy();
 ?>
 <!DOCTYPE html>
