@@ -15,7 +15,7 @@ include("config/site.php"); // include your site config file
 <div class="top_head">
     <h1>Fitness Club Management System</h1>
     <label>Value from session => </label>
-    <?php echo $_SESSION['any_key']; ?>
+    <?php echo $_SESSION['any_key'] ?? ''; ?>
 </div>
 
 <section class="page-content">
