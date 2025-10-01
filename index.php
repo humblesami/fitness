@@ -1,8 +1,9 @@
 <?php
-// $_POST
-// $_SERVER
-// $_SESSION
-include("config/site.php"); // include your site config file ?>
+session_start();
+include("config/site.php"); // include your site config file 
+// $_SESSION['any_key'] = '1000';
+// session_destroy();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,6 +14,8 @@ include("config/site.php"); // include your site config file ?>
 
 <div class="top_head">
     <h1>Fitness Club Management System</h1>
+    <label>Value from session => </label>
+    <?php echo $_SESSION['any_key']; ?>
 </div>
 
 <section class="page-content">

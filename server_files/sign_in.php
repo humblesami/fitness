@@ -37,10 +37,9 @@ function loginUser($conn){
             // $stmt = $conn->prepare($sql);
             // $stmt->bind_param("s", $user_identity);
 
-            $sql = "SELECT id, username, email, password FROM users WHERE username=? or email=?";
+            $sql = "SELECT id, name, username, email, password FROM users WHERE username=? or email=?";
             $stmt = $conn->prepare($sql);
             $stmt->bind_param("ss", $user_identity, $user_identity);
-            
             $stmt->execute();
             $result = $stmt->get_result();
 
@@ -52,6 +51,7 @@ function loginUser($conn){
                     // Login successful
                     $_SESSION['user_id'] = $user['id'];
                     $_SESSION['username'] = $user['username'];
+                    $_SESSION['name'] = $user['name'];
                     unset($_SESSION['login_captcha']); // remove CAPTCHA after success
                     header("Location: dashboard.php"); // Redirect to dashboard
                     exit;
